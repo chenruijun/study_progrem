@@ -1,0 +1,30 @@
+page{
+  background: #f2f4f7;
+}
+.toptiltle {
+  font-size: 32rpx;
+  height: 100rpx;
+  align-items: left;
+  line-height: 100rpx;
+  text-indent: 40rpx;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #c87a56;
+}
+.toptiltle text{color: #fff;}
+.report_img{flex-direction: column;align-items: center}
+.report_img image{width: 100%;}
+.other-button-hover {
+  background-color: #c87a56;
+}
+.btn-retest {
+  background-color: #ec1f2f;
+  color: #fff;
+  margin: 50rpx auto;
+  width: 480rpx;
+}
+.btn {
+  font-size: 32rpx;
+  padding-left: 100rpx;
+  padding-right: 100rpx;
+}

@@ -1,0 +1,227 @@
+<!--pages/Presentation/Presentation.wxml-->
+<view class="ripple" style="{{rippleStyle}}"></view>
+<view class="container" bindtouchstart="containerTap">
+  <loading hidden="{{showloading}}">加载中...</loading>
+  <view class="topbox">
+    <view class="userinfo flex">
+      <image class="userinfo-avatar" src="{{avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{nickName}}</text>
+    </view>
+    <view class="evaluation-results flex">
+      <view class="flex-item flex target-a">
+        <view class="target flex blod">
+          <text>竞争目标</text>
+        </view>
+        <view class="target flex">
+          <text>{{country}}</text>
+        </view>
+        <view class="subject flex">
+          <text>{{major}}</text>
+        </view>
+      </view>
+      <view class="line"></view>
+      <view class="flex-item flex target-b">
+        <view class="target2 flex">
+          <text>竞争力得分</text>
+        </view>
+        <view class="fenshu flex">
+          <text>{{num}}</text>
+        </view>
+        <view class="target2 flex">
+          <text>超过{{ratio}}%竞争对手</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 详情展示盒子 -->
+  <view class="All_wrapbox">
+    <!-- 他的能力模型 -->
+    <view class="toptiltle flex toptiltlecolor">
+      <text>你的能力模型</text>
+    </view>
+    <view class="picbox flex {{showView?'isBlock':'isHide'}} {{showView2?'isHide':'isBlock'}}">
+      <ec-canvas id="mychart-dom-rabar" canvas-id="mychart-rabar" ec="{{ ecradar }}"></ec-canvas>
+    </view>
+    <!-- 详细报告手机验证按钮 -->
+    <button animation="{{animationData}}" bindtap="showModal" id='report_to_det' class="show-search {{showView2?'isBlock':'isHide'}}">详细报告</button>
+    <!-- 手机号码验证弹窗 -->
+    <view class="content" animation="{{animationData}}" wx:if="{{showModalStatus}}">
+      <view class="hd" style="transform:rotateZ({{angle}}deg);">
+        <image class="wave" src="../../images/wave.png" mode="aspectFill"></image>
+        <image class="wave wave-bg" src="../../images/wave.png" mode="aspectFill"></image>
+      </view>
+      <view class="bd">
+        <form bindsubmit="formSubmit" bindreset="formReset">
+          <view class="section_phone flex">
+            <view class="section__title">手机号</view>
+            <input type="number" placeholder="输入手机号码" bindinput="bindKeyInput" placeholder-class="input-placeholder" maxlength="11" />
+          </view>
+          <view class="section_code flex">
+            <view class="section__title">验证码</view>
+            <input bindinput="yanzhengInput" type="number" placeholder="输入验证码" placeholder-class="input-placeholder" maxlength="6" />
+            <button class="section__title2 {{showView3?'':'isColor'}}" bindtap='yanzhengBtn' disabled="{{disabled}}">{{getText}}</button>
+          </view>
+          <button class="confirm-btn" id='report_to_detsee' formType="submit">
+            查看详细报告
+          </button>
+          <view class="section__text flex">
+            <text>有对你当前条件进行分析和建议的详细内容</text>
+            <text>还可以分享给你的小伙伴哦</text>
+          </view>
+        </form>
+      </view>
+    </view>
+    <!-- 竞争目标概述 -->
+    <view class="wrapbox {{showView2?'isHide':'isBlock'}}">
+      <view class="toptiltle flex toptiltlecolor">
+        <text>竞争目标概述</text>
+      </view>
+      <view class="summary flex">
+        <text>{{summary}}</text>
+      </view>
+      <!-- 详细报告 -->
+      <view class="detailed-report">
+        <view class="toptext flex">
+          <text decode="{{true}}">—— &nbsp;详细报告 &nbsp;——</text>
+        </view>
+        <view class="user-report flex">
+          <view class="fs-show flex">
+            <text class="fs-text">{{score}}</text>
+            <text class="fs-text-small">分</text>
+          </view>
+          <view class="information flex">
+            <text>超过{{ratio}}%竞争对手</text>
+          </view>
+        </view>
+        <view wx:for="{{list}}" wx:key="index" data-id="{{index}}" class="infolist">
+          <view class="infolist-item {{item.flag?'isBgcolor':''}}">
+            <view class="tapbar flex" bindtap="onTap" data-index="{{index}}">
+              <view class="infolist-tltle flex">{{item.levelName}}（{{item.totalScore}}分）</view>
+              <view class="icon-dropdown flex">
+                <image class="{{item.flag?'tans':''}}" src="../../images/topdrop.png"></image>
+              </view>
+            </view>
+            <view wx:if="{{index=='0'}}" class="{{item.flag?'isHide':'isBlock'}} j-info">
+              <text>院校背景+专业匹配度+在校成绩</text>
+              <text class="jy_box"><text class="sj"></text>
+              <text class="jy_text1">建议</text></text>
+            </view>
+            <view wx:if="{{index=='1'}}" class="{{item.flag?'isHide':'isBlock'}} j-info">
+              <text>TOEFL/IELTS成绩</text>
+              <text class="jy_box"><text class="sj"></text>
+              <text class="jy_text1">建议</text></text>
+            </view>
+            <view wx:if="{{index=='2'}}" class="{{item.flag?'isHide':'isBlock'}} j-info">
+              <text>CRE/GMAT</text>
+              <text class="jy_box"><text class="sj"></text>
+              <text class="jy_text1">建议</text></text>
+            </view>
+            <view wx:if="{{index=='3'}}" class="{{item.flag?'isHide':'isBlock'}} j-info">
+              <text>社会实践经历及专业相关活动</text>
+              <text class="jy_box"><text class="sj"></text>
+              <text class="jy_text1">建议</text></text>
+            </view>
+            <view wx:if="{{index=='4'}}" class="{{item.flag?'isHide':'isBlock'}} j-info">
+              <text>高质量科研活动或论文发表</text>
+              <text class="jy_box"><text class="sj"></text>
+              <text class="jy_text1">建议</text></text>
+            </view>
+            <view wx:for="{{item.data}}" wx:for-item="cont" wx:key="index" data-id="{{index}}" class="{{item.flag?'isBlock':'isHide'}} isContent">
+              <view wx:if="{{cont.isShow==1}}">
+                <text class="tab1">
+                <text class="jy_text2" wx:if="{{cont.subTitle!=''}}">{{cont.subTitle}}：</text> {{cont.resolve}}
+                </text>
+                <text class="tab tab2" wx:if="{{cont.remind!=''}}">
+                <text class="jy_text">建议</text> {{cont.remind}}
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+       <!--<view class="btn-group flex">
+        <button class="btn save-img">保存图片</button> 
+        <button class="btn-retest btn" id="sharebtn1" hover-class="other-button-hover" open-type="share" bindtap='onShareAppMessage'>分享到群再测一次</button>
+      </view>-->
+      <!-- 你的小档案 -->
+      <view class="archives">
+        <view class="archives-title flex">
+          <view class="archives-titletext">
+            <text>你的小档案</text>
+          </view>
+          <view class="archives-titletext2">
+            <text>留学目标：{{country}} | {{major}}</text>
+          </view>
+        </view>
+        <view class="university-Information flex" style='margin-bottom:15rpx;'>
+          <text wx:for="{{school}}" wx:key="index" class="mt-top">
+           <text wx:if="{{item.school!=null}}">
+            <text>就读院校：{{item.school}}</text>
+          </text>
+          </text>
+          <text wx:for="{{school}}" wx:key="index" class="mt-top">
+           <text wx:if="{{item.majorForNow!=null}}">
+            <text>就读专业：{{item.majorForNow}}</text>
+          </text>
+          </text>
+          <text wx:for="{{school}}" wx:key="index" class="mt-top">
+           <text wx:if="{{item.school==null}}">
+            <text>{{item.sTitle}}：{{item.eTitle}}</text>
+          </text>
+          </text>
+          <text wx:for="{{yy_text}}" wx:key="index" class="mt-top">
+          <!-- <text wx:if="{{item.eTitle!='我还没有托福成绩' && item.eTitle!='我还没有IELTS成绩'}}"> -->
+           <text wx:if="{{item.eTitle!=''}}">
+          <text>{{item.sTitle}}：{{item.eTitle}}</text>
+          </text>
+          </text>
+          <text wx:for="{{ett2}}" wx:key="index" class="mt-top2">
+           <!-- <text wx:if="{{item.eTitle!='我还没有GMAT成绩' && item.eTitle!= '我还没有GRE成绩'}}"> -->
+           <text wx:if="{{item.eTitle!=''}}">
+          <text>{{item.sTitle}}：{{item.eTitle}}</text>
+          </text>
+          </text>
+        </view>
+        <view class="university-Information bor-top" wx:for="{{sj_text}}" wx:key="index">
+          <view wx:if="{{item.eTitle!=''}}">
+            <text>• {{item.eTitle}}</text>
+          </view>
+        </view>
+        <view class="university-Information bor-top" wx:for="{{ett1}}" wx:key="index">
+          <view wx:if="{{item.eTitle!=''}}">
+            <text>• {{item.eTitle}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- <view class="fx-footer flex {{showView?'isBlock2':'isHide'}}">
+      <view class="logo-img">
+        <image src="../../images/logo.png"></image>
+      </view>
+      <view class="line2"></view>
+      <view class="program-name flex">
+        <text class="nametext1">百利留学测评</text>
+        <text class="nametext2">更懂留学更懂你</text>
+      </view>
+      <view class="wx-wechat">
+        <image src="../../images/wx.png"></image>
+      </view>
+    </view> -->
+      <view class="yx_box flex">
+        <image src='../../images/bgpic.png'></image>
+      </view>
+      <view class="btn-group flex">
+        <button class="btn-retest btn" id="report_to_schools" hover-class="other-button-hover" bindtap='checkyxbtn'>查看我的选校报告</button>
+      </view>
+      <view class="zhezhao {{test?'isBlock':'isHide'}}">
+        <view class="model">
+          <view class="tips">提示</view>
+          <view class="modelTitle">点击分享后查看选校报告哦</view>
+          <view class="btns flex">
+            <button hover-class="other-button-hover" class="agree2" bindtap='checkyxbtn2'>取消</button>
+            <button hover-class="other-button-hover" open-type="share" bindtap='onShareAppMessage' class="agree" id="report_sharebtn2">分享</button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

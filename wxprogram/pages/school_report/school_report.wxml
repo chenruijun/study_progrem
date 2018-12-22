@@ -1,0 +1,124 @@
+<!-- <view class="ripple" style="{{rippleStyle}}"></view> -->
+<view class="container">
+   <loading hidden="{{showloading}}">加载中...</loading> 
+    <view class="topbox">
+      <view class="userinfo flex">
+        <image class="userinfo-avatar" src="{{school_list.avatar_url}}" background-size="cover"></image>
+        <text class="userinfo-nickname">{{school_list.nick_name}}</text>
+      </view>
+      <view class="evaluation-results flex">
+        <view class="flex-item flex target-a">
+          <view class="target flex blod">
+            <text>竞争目标</text>
+          </view>
+          <view class="target flex">
+            <text>{{school_list.target}}</text>
+          </view>
+          <view class="subject flex">
+            <text>{{school_list.intention}}</text>
+          </view>
+        </view>
+        <view class="line"></view>
+        <view class="flex-item flex target-b">
+          <view class="target2 flex">
+            <text>竞争力得分</text>
+          </view>
+          <view class="fenshu flex">
+            <text>{{school_list.score}}</text>
+          </view>
+          <view class="target2 flex">
+            <text>超过{{school_list.proportion}}%竞争对手</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="kind_school">
+      <view class="kind_title">为你私人定制的选校计划</view>
+      <view class='school_list'>
+        <view wx:for="{{list}}" wx:key="key" wx:for-item="item" class="school_list_item">
+          <view class='item_top' bindtap="ontap" data-index="{{index}}">
+            <view class="item_top_title" wx:if="{{index=='heixin'}}">
+             <view class='title_icon'>
+               <image src='../../images/school_icom_01.png'></image>
+              </view>
+              核心院校
+            </view>
+           <view class="item_top_title" wx:if="{{index=='chongci'}}">
+             <view class='title_icon'>
+               <image src='../../images/school_icom_02.png'></image>
+              </view>
+              冲刺院校
+            </view>
+            <view class="item_top_title" wx:if="{{index=='baodi'}}">
+             <view class='title_icon'>
+               <image src='../../images/school_icom_03.png'></image>
+              </view>
+              保底院校
+            </view>
+            <view class='icon_drop'>
+              <image src='../../images/topdrop.png'  class="{{item.flag?'tans':''}}"></image>
+            </view>
+          </view>
+          <view class="item_daoyu {{item.flag?'hide':'block'}}">
+            <text wx:if="{{index=='heixin'}}">很有可能，这就是属于你的菜</text>
+            <text wx:if="{{index=='chongci'}}">加把柴，让你得到名校的青睐</text>
+            <text wx:if="{{index=='baodi'}}">稳住别浪，回头豆包还能当干粮</text>
+          </view>
+          <!-- <view class="{{uhide==index?'block':'hide'}}"> -->
+           <view class="school_detial {{item.flag?'block':'hide'}} " wx:for="{{item.data}}" wx:key="cont" wx:for-item="cont" >
+            <view class='school_name'>
+              <text>{{cont.title}}</text>
+              <text class='english_name'>{{cont.ename}}</text>
+            </view>
+            <view class='school_info'>
+                <view>
+                    <text class="info_name">平均录取率：</text>
+                    <text class="rate" wx:if="{{cont.rate=='NA'}}">--</text>
+                    <text class="rate" wx:elif="{{cont.rate==''}}">--</text> 
+                    <text class="rate" wx:else>{{cont.rate}}</text>
+                  </view>
+                  <view>
+                    <text class="info_name" wx:if="{{cont.modelid==254}}">USnews综合排名：</text>
+                    <text class="info_name" wx:if="{{cont.modelid==265}}">麦克林排名：</text>
+                    <text class="info_name" wx:if="{{cont.modelid==266}}">泰晤士排名：</text>
+                    <text class="info_name" wx:if="{{cont.modelid==298}}">日本院校排名：</text>
+                    <text class="info_name" wx:if="{{cont.modelid==312}}">SAT排名：</text>
+                    <text class="info_name" wx:if="{{cont.modelid==313}}">澳洲QS综合排名：</text>
+                    <text class="info_name" wx:if="{{cont.modelid==314}}">USnews文理学院排名：</text>
+                    <text wx:if="{{cont.rank==99999}}">--</text>
+                    <text wx:else>{{cont.rank}}</text>
+                  </view>
+                   <view>
+                    <text class="info_name">学校性质：</text>{{cont.shooltype}}
+                  </view>
+                  <view>
+                    <text class="info_name">地理位置：</text>{{cont.stateid}} 
+                  </view>
+                  <view class='fee'>
+                    <text class="info_name">学费：</text>{{cont.fee}}
+                  </view>
+            </view>
+          </view>
+          </view> 
+        </view>
+      </view>
+    <!-- </view> -->
+    <button class="test_again" id="sharebtn1" open-type="share"  bindtap='onShareAppMessage'>分享到群再测一次</button>
+    <view class="school_model">
+      <view class="model_title">你的能力模型</view>
+      <view class="{{test?'hide':'block'}}">
+      <ec-canvas id="mychart-dom-rabar" ec="{{ecradar}}" style="display:flex;height:460rpx;margin:40rpx auto 0;"></ec-canvas>
+      </view>
+    </view>
+    <button class='see_report' id='schools_to_report' bindtap='onShareAppMessage'  bindtap='checkyxbtn'>查看我的竞争力报告详情</button>
+    <view class="zhezhao {{test?'block':'hide'}}">
+        <view class="model">
+         <view class="tips">提示</view>
+          <view class="modelTitle">点击分享后查看竞争力报告哦</view>
+          <view class="btns flex">
+            <button hover-class="other-button-hover" class="agree" bindtap='checkyxbtn2'>取消</button>
+            <button hover-class="other-button-hover" open-type="share" bindtap='onShareAppMessage' class="agree2" id="school_sharebtn2">分享</button> 
+          </view>
+        </view>
+      </view>
+  </view>

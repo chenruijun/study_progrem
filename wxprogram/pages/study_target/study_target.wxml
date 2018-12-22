@@ -1,0 +1,16 @@
+<view class="container">
+  <loading hidden="{{showloading}}">加载中...</loading>
+  <view class="target_title">
+    <text class="select_target">选择你的留学目标\n</text>
+    <text class="select_des">为你筛选竞争对手，指点你相关领域招生喜好</text>
+  </view>
+  <view class="target_option">
+    <picker-view indicator-style="height: 45px;" bindchange="bindchange"  >
+      <picker-view-column>
+        <view wx:for="{{country}}" wx:key="country" bindchange="aa" data-index="{{index}}" style="line-height: 45px">{{item}}</view>
+      </picker-view-column>
+    </picker-view>
+    <button class='next_page' id='from_to_int_target'  bindtap='major'>下一步</button>
+  </view>
+</view>
+<view class='hide'>{{select_country}}</view>

@@ -1,0 +1,283 @@
+/* pages/school_report/school_report.wxss */
+ page{
+  background: #f2f4f7;
+} 
+.topbox {
+  background: linear-gradient(#FA976C, #FA8479,#FB7385,#FC6191);
+}
+.userinfo {
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  height: 128rpx;
+  margin: 60rpx 20rpx 20rpx 20rpx;
+  border-radius: 50%;
+  width: 128rpx;
+}
+
+.userinfo-nickname {
+  color: #fff;
+  margin-bottom: 50rpx;
+}
+.evaluation-results {
+  height: 200rpx;
+}
+.evaluation-results .line {
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.6);
+  height: 170rpx;
+}
+
+.flex-item {
+  width: 50%;
+  flex-direction: column;
+}
+.target-a {
+  align-items: left;
+  margin-right: 0rpx;
+  text-indent: 90rpx;
+}
+
+.target {
+  font-size: 28rpx;
+  color: #fff;
+  margin-bottom: 27rpx;
+}
+
+.subject {
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.blod {
+  font-weight: bold;
+  font-size: 30rpx;
+}
+
+.target2 {
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.fenshu {
+  height: 95rpx;
+}
+
+.fenshu text {
+  font-size: 72rpx;
+  color: #fff;
+  font-weight: blod;
+}
+
+.target-b {
+  align-items: center;
+}
+.kind_school{
+  display: flex;
+  flex-direction: column;
+  padding-top:35rpx;
+  /* background: #f2f4f7; */
+}
+.kind_title{
+  font-size:32rpx;
+  font-weight: bold;
+  padding-left:40rpx;
+  margin-bottom:35rpx;
+}
+.school_list_item{
+  background: #fff;
+  margin-top:-1px;
+  margin-bottom:20rpx;
+  padding-top:10rpx;
+  padding-bottom: 30rpx;
+}
+/* .school_list_item:last-child{
+  margin-bottom: 0;
+} */
+.item_top{
+  width:90%;
+  margin:0rpx auto;
+  display: flex;
+  flex-direction: row;
+   justify-content: space-between; 
+   padding:30rpx 0 30rpx 0;
+}
+.item_daoyu{
+  width:90%;
+  margin:0rpx auto 0;
+}
+.school_detial{
+  padding-left:38rpx;
+  padding-right:30rpx;
+  padding-bottom:30rpx;
+  border-bottom:1px dashed #ccc;
+  overflow:hidden;
+  margin-bottom:30rpx;
+}
+.school_detial:last-child{
+  border-bottom:none;
+  margin-bottom:0;
+  padding-bottom: 10rpx;
+}
+.item_top_title{
+  display:flex;
+  font-size:32rpx;
+  color:#141414;
+}
+.title_icon{
+  width:34rpx;
+  height: 33rpx;
+  margin-right: 15rpx;
+}
+.title_icon image{
+  width:100%;
+  height:100%;
+  margin-bottom:-2px;
+}
+.icon_drop{
+  display: flex;
+  width:40rpx;
+  height:18rpx;
+  margin-top:10rpx;
+}
+.icon_drop image{
+  width:100%;
+  height:100%;
+}
+.item_daoyu text{
+  font-size:30rpx;
+  color:#4c4c4d;
+}
+.school_name text{
+  font-size: 28rpx;
+  color:#141414;
+}
+.school_name text.english_name{
+  margin-left:50rpx;
+}
+.school_info{
+  font-size:26rpx;
+  color:#141414;
+  overflow:hidden;
+  margin-top:10rpx;
+}
+.school_info view{
+  width:50%;
+  float:left;
+  line-height: 44rpx;
+}
+.school_info view.fee{
+  width:100%;
+}
+.info_name{
+  font-size:26rpx;
+  color:#141414;
+  font-weight: bold;
+}
+.rate{
+  color:#fd504e;
+}
+.isBgcolor{
+  background: #f5f5f5;
+}
+.hide{
+  display: none;
+}
+.block{
+  display: block;
+}
+.tans {
+  transform: rotate(180deg);
+}
+.test_again{
+  width:400rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  background: #ec1f2f;
+  color:#fff;
+  margin-top:40rpx;
+  display: none;
+}
+
+.school_model{
+  margin-top:50rpx;
+}
+.model_title{
+  font-size: 32rpx;
+  color:#141414;
+  padding-left:40rpx;
+  font-weight: bold;
+}
+.see_report{
+  width:500rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #ec1f2f;
+  font-size: 32rpx;
+  color:#fff;
+  margin-bottom: 50rpx;
+  margin-top:50rpx;
+}
+.zhezhao {
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.model {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  top: 30%;
+  left: 10%;
+  width: 80%;
+  height: 300rpx;
+  background: #fff;
+  border-radius: 5px;
+}
+.tips{
+  padding:0 40rpx 0rpx 40rpx;
+  font:36rpx '微软雅黑';
+}
+.modelTitle {
+  font:34rpx '微软雅黑';
+  color:#888;
+  width:88%;
+  padding:50rpx 0 50rpx;
+  margin:0 auto;
+  text-align:left;
+}
+.agree2{
+   color:green;
+}
+.agree,.agree2 {
+  background:#fff;
+}
+
+.agree::after,.agree2::after {
+  border: 1px solid #fff;
+}
+
+.btns {
+  flex-direction:row;
+  width:46%;
+  float:right;
+  padding-left:315rpx;
+}
+
+.btns button {
+  width:50%;
+  font:36rpx '微软雅黑';
+  padding-bottom:20rpx;
+
+}
+

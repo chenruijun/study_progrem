@@ -1,0 +1,17 @@
+<view class="container">
+  <loading hidden="{{showloading}}">加载中...</loading>
+  <view class="target_title">
+    <text class="select_target">选择你想读的专业</text>
+    <text class="select_des">为你定位筛选竞争对手，匹配案例</text>
+  </view>
+  <view class="target_option">
+
+    <picker-view indicator-style="height: 45px;" bindchange="bindchange">
+      <picker-view-column>
+        <view wx:for="{{major}}" wx:key="major" data-id="{{item.id}}" style="line-height: 45px">{{item.title}}</view>
+      </picker-view-column>
+    </picker-view>
+    <button class='next_page' id='from_to_int_pro' bindtap='major_test'>确认目标</button>
+  </view>
+</view>
+<view class="hide">{{select_major}}</view>

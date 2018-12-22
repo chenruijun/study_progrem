@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#FA976C",
+  "navigationBarTitleText": "选校报告",
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+  }
+}

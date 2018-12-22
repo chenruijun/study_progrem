@@ -1,0 +1,7 @@
+/* pages/study_target/study_target.wxss */
+@import "../common/common.wxss";
+.hide{display: none}
+
+
+
+  

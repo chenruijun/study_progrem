@@ -1,0 +1,14 @@
+<view class="ripple" style="{{rippleStyle}}"></view>
+<view class="container" bindtouchstart="containerTap">
+   <view class="toptiltle flex">
+    <text>王同学为真实百利天下学子</text>
+  </view> 
+  <!-- 竞争测评分数报告结果图片展示 -->
+  <view class="report_img flex">
+    <image class="pic1" src="../../images/school_wang_02.gif" mode="widthFix"></image>
+    <image class="pic2" src="../../images/school_wang_03.gif" mode="widthFix"></image>
+    <image class="pic3" src="../../images/school_wang_04.gif" mode="widthFix"></image>
+    <image class="pic4" src="../../images/school_wang_05.gif" mode="widthFix"></image>
+  </view>
+   <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"  class="btn-retest btn" id='xy_fast_to_test' hover-class="other-button-hover">立即测试</button>
+ </view>

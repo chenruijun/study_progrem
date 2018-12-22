@@ -1,0 +1,73 @@
+<view class="ripple" style="{{rippleStyle}}"></view>
+<view class="container" bindtouchstart="containerTap">
+  <loading hidden="{{showloading}}">加载中...</loading>
+  <view class='index_title'>
+    <text class="{{isIphoneX?'iphonex_index_big_title':''}} index_big_title flex">3分钟测评，1分钟出结果</text>
+    <text class="{{isIphoneX?'iphonex_index_small_title':''}} index_small_title flex">大量案例数据库支持</text>
+    <text class="{{isIphoneX?'iphonex_index_small_title':''}} index_small_title flex">十年留学行业申请经验</text>
+    <text class="{{isIphoneX?'iphonex_index_small_title':''}} index_small_title flex">贴心辅导老师详细指点</text>
+  </view>
+  <view class="{{isIphoneX?'iphonex_index_button':''}} {{test?'show':'hide'}}  index_button">
+    <button class='index_button_1' id='report_to_test' bindtap='go_test'>
+      立即测试
+    </button>
+    <button class='index_button_3' id='report_to_see1' bindtap="muban">
+      竞争力报告模板
+    </button>
+    <button class='index_button_3' id='school_to_see1' bindtap="xuanxiao">
+      选校报告模板
+    </button>
+  </view>
+  <view class="{{isIphoneX?'iphonex_index_button':''}} {{share?'show':'hide'}} index_button">
+    <button class='index_button_1' id='report_to_seetwo' bindtap='see_bg'>
+      查看我的竞争力报告
+    </button>
+    <button class='index_button_2' id='school_to_seetwo2' bindtap='see_bg2'>
+      查看我的选校报告
+    </button>
+    <button class="index_button_3 {{showbtn?'show':'hide'}}" id='sharebtn1' open-type="share" bindtap='onShareAppMessage'>
+      分享后再测一次
+    </button>
+  </view>
+  <view class="{{isIphoneX?'iphonex_index_model':''}} index_model flex">
+    <text>能力模型</text>
+    <image class="{{pic?'show':'hide'}}" mode="widthFix" src="../../images/index/u67.png"></image>
+    <view class="rabar {{dsiabled?'show':'hide'}} {{sharebtn?'hide':'show'}} {{sharebtn2?'hide':'show'}} {{showModel?'hide':'show'}}">
+      <ec-canvas id="mychart-dom-rabar" ec="{{ecradar}}" style="display:flex;height:420rpx;margin:0 auto;"></ec-canvas>
+    </view>
+  </view>
+  <view class="banquan flex">
+    <text>版权：北京环球百利教育科技有限公司</text>
+  </view>
+</view>
+<view wx:if="{{showModel}}" class='zhezhao'>
+  <view class="model">
+    <view class="modelTitle">
+      获取微信授权信息
+    </view>
+    <view class="modelBody">微信登录需要获取您的用户信息，请前往设置</view>
+    <view class="btns">
+      <button open-type="getUserInfo" class="agree" bindgetuserinfo="getUserInfo" lang="zh_CN">去设置</button>
+    </view>
+  </view>
+</view>
+<view class="zhezhao2 {{sharebtn2?'show':'hide'}}">
+  <view class="model2">
+   <view class="tips">提示</view>
+    <view class="modelTitle2">点击分享后查看选校报告哦</view>
+    <view class="btns2 flex">
+      <button hover-class="other-button-hover" class="agree3" bindtap='checkyxbtn2'>取消</button>
+      <button hover-class="other-button-hover" open-type="share" bindtap='onShareAppMessage' class="agree2" id="sharebtn2">分享</button>
+    </view>
+  </view>
+</view>
+<view class="zhezhao3 {{sharebtn?'show':'hide'}}">
+  <view class="model2">
+  <view class="tips">提示</view>
+    <view class="modelTitle2">点击分享后查看竞争力报告哦</view>
+    <view class="btns2 flex">
+      <button hover-class="other-button-hover" class="agree3" bindtap='checkyxbtn3'>取消</button>
+      <button hover-class="other-button-hover" open-type="share" bindtap='onShareAppMessage' class="agree2" id="sharebtn3">分享</button>
+    </view>
+  </view>
+</view>

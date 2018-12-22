@@ -1,0 +1,255 @@
+/* pages/muban/muban.wxss */
+
+page {
+  overflow: hidden;
+}
+
+.container {
+  padding: 0;
+  overflow: hidden;
+}
+
+.flex {
+  flex-direction: column;
+  align-items: center;
+}
+
+.index_title {
+  text-align: center;
+  overflow: hidden;
+}
+
+.index_big_title {
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-top: 35rpx;
+  margin-bottom: 25rpx;
+  color: #141414;
+}
+
+.index_big_title.iphonex_index_big_title {
+  font-size: 36rpx;
+  line-height: 60rpx;
+  margin-top: 20rpx;
+}
+
+.index_small_title {
+  font-size: 30rpx;
+  line-height: 48rpx;
+  color: #4c4c4d;
+}
+
+.index_small_title.iphonex_index_small_title {
+  font-size: 32rpx;
+  line-height: 56rpx;
+  margin-top: 20rpx;
+}
+
+.index_button {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.iphonex_index_button.index_button {
+  font-size: 32rpx;
+  line-height: 84rpx;
+}
+
+.index_button button {
+  text-align: center;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  line-height: 82rpx;
+}
+
+.iphonex_index_button.index_button button {
+  margin-top: 40rpx;
+}
+
+.index_button_1 {
+  margin-top: 20rpx;
+  border: 1px solid #ec1f2f;
+  background: #ec1f2f;
+  color: #fff;
+}
+
+.index_button_2 {
+  margin-top: 20rpx;
+  border: 1px solid #fd504e;
+  background: #fd504e;
+  color: #fff;
+}
+
+.casebtn {
+  flex-direction: row;
+}
+
+.index_button_3 {
+  background: #fff;
+  color: #4c4c4d;
+  margin-top: 20rpx;
+}
+
+.index_model {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.rabar {
+  width: 100%;
+  height: 580rpx;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  margin-top: 10px;
+}
+
+ec-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.iphonex_index_model.index_model {
+  margin: 30px auto 0;
+}
+
+.index_model text {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #141414;
+  margin-top: 30rpx;
+}
+
+.index_model image {
+  width: 600rpx;
+  height: 478rpx;
+}
+
+.banquan {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 30rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #fff;
+  background: #ec1f2f;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.zhezhao {
+  display: block;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.model {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 30%;
+  left: 10%;
+  width: 80%;
+  height: 300rpx;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.model2 {
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  justify-content: flex-end;
+  position: fixed;
+  top: 30%;
+  left: 10%;
+  width: 80%;
+  height: 300rpx;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.modelTitle {
+  font: 36rpx/46rpx '微软雅黑';
+  color: #141414;
+  border-bottom: 1px solid #e5e5e6;
+  width: 100%;
+  text-align: center;
+  padding: 20rpx 0;
+}
+
+.modelBody {
+  padding: 0 60rpx;
+  font: 32rpx/46rpx '微软雅黑';
+  margin-top: 20rpx;
+  color: #999;
+}
+
+.agree, .agree2 {
+  background: #fff;
+  color: green;
+}
+
+.agree3 {
+  background: #fff;
+}
+
+.agree::after, .agree2::after, .agree3::after {
+  border: 1px solid #fff;
+}
+
+.zhezhao2, .zhezhao3 {
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modelTitle2 {
+  font: 34rpx '微软雅黑';
+  color: #888;
+  width: 88%;
+  text-align: left;
+  padding: 50rpx 0 50rpx;
+  margin: 0 auto;
+}
+
+.tips {
+  padding: 0 40rpx 0rpx 40rpx;
+  font: 36rpx '微软雅黑';
+}
+
+.btns2 {
+  flex-direction: row;
+  width: 46%;
+  float: right;
+  padding-left: 315rpx;
+}
+
+.btns2 button {
+  width: 50%;
+  font: 36rpx '微软雅黑';
+  padding-bottom: 20rpx;
+}

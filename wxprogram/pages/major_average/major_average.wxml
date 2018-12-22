@@ -1,0 +1,50 @@
+<!--pages/major_test/major_test.wxml-->
+<view class="container">
+  <loading hidden="{{showloading}}">加载中...</loading>
+  <view class='test_title'>
+    <image class='pack_icon' src='../../images/index/maozi_03.png'></image>
+    <text class='flex'>{{country}}{{major}}测评</text>
+  </view>
+    <view class='test_object'>
+    <view class='object_left'>{{zimu.levelName}}</view>
+    <view class='object_right'>{{xh_index}}/{{sum}}</view>
+  </view>
+  <view class='option_title'>{{zimu.title}}</view>
+  <!--就读院校-->
+  <view class="text_option {{read_school?'show':'hide'}}">
+    <view class='read_major'>
+      <input class="read_major_text {{hover?'':'border_hover'}}" bindinput="bindyx"  value="{{school}}" placeholder='请输入院校完整名称' />
+      <button class="read_save {{state?'hide':'show'}} {{hover?'':'hover'}}" id='from_to_attend_uni_n' disabled="{{disabled}}" bindtap='read_save'>保存</button>
+    </view>
+    <scroll-view scroll-y="true" class="scrollview {{sel_list?'hide':'show'}} ">
+      <view wx:for="{{bindyxSource}}" wx:key="bindyxSource">
+        <view id="{{item.id}}" data-text="{{item.title}}" data-pid="{{zimu.pid}}" data-type="{{item.type}}"  bindtap="itemtap" class="itemview">{{item.title}}</view>
+      </view>
+    </scroll-view>
+    <button class="home_school" id='from_to_attend_uni_w' bindtap='read_ab_save' data-id="{{zimu.pid}}">最高学历为国外院校</button>
+  </view>
+  <!--就读专业-->
+  <view class="text_option {{text_major?'show':'hide'}}">
+    <view class='read_major'>
+      <input class="read_major_text  {{hover1?'':'border_hover'}}" bindinput="bindmajor"    value="{{majorForNow}}" placeholder='请选择专业' />
+      <button class="read_save {{state1?'hide':'show'}} {{hover1?'':'hover'}}" id='from_to_attend_pro' bindtap='read1_save' disabled="{{disabled1}}" >保存</button>
+    </view>
+    <scroll-view scroll-y="true" class="scrollview {{state1?'hide':'show'}} ">
+      <view wx:for="{{bindmajorSource}}" wx:key="bindmajorSource">
+        <view id="{{item.id}}" data-text="{{item.title}}" bindtap="itemtap1" class="itemview">{{item.title}}</view>
+      </view>
+    </scroll-view>
+  </view>
+  <!--选择题-->
+  <view class="text_option {{select_options?'show':'hide'}}">
+    <view class='option_content'>
+      <view class="option_row" wx:for="{{show_option}}" wx:key="num" >
+       <view class="tag {{addclass?'true':'false'}} {{currentItem==index&&addclass?'active-tag':''}}"  id='from_to_results' data-id="{{item.id}}" data-pid="{{item.pid}}" data-text="{{item.title}}" data-index="{{index}}" bindtap='get_option'>
+        <text class="option_zimu" >{{item.word}}</text>
+        <text class='option_select'>{{item.title}}</text>
+       </view>
+     </view> 
+    </view>
+  </view>
+</view>
+

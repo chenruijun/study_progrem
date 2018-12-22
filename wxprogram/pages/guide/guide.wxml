@@ -1,0 +1,25 @@
+<!--pages/guide/guide.wxml-->
+<view class="ripple" style="{{rippleStyle}}"></view>
+<view class="container" bindtouchstart="containerTap">
+  <loading hidden="{{showloading}}">加载中...</loading>
+  <view class="guide-text flex">
+    <text class="text1">{{country}}</text>
+    <text class="text2">{{major}}</text>
+    <text class="text3">相似案例匹配</text>
+    <text class="text4">能力模型分析</text>
+    <text class="text5">报告生成中</text>
+    <text class="text6">报告生成完毕</text>
+  </view>
+  <view class="reslut-text">
+    <image src="../../images/tbg.png"></image>
+    <view class="bgcolor-box">
+      <view class="total-value flex">
+        <text>{{num}}{{numComplete}}</text>
+      </view>
+      <view class="text-show flex">
+        <text>2018年{{country}}{{major}}竞争对手数预测</text>
+      </view>
+      <button bindtap="bindViewTap" class="btn-show" disabled='{{disabled}}' id="report_to_see2">查看我的能力模型</button>
+    </view>
+  </view>
+</view>

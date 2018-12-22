@@ -1,0 +1,149 @@
+/* pages/guide/guide.wxss */
+
+.container {
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+page {
+  height: 100%;
+  overflow: hidden;
+  background-color: #FC6D9E;
+}
+.guide-text {
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding-top: 100rpx;
+}
+.bgcolor-box{
+  background: linear-gradient(#FA9C7E, #FB8C89,#FB7D94,#FC6D9E);
+}
+.reslut-text image{display: flex;width: 100%;height: 197rpx;}
+.guide-text text {
+  font-size: 36rpx;
+  color: #141414;
+  margin-bottom: 35rpx;
+  opacity: 0;
+}
+
+.guide-text .text1 {
+  animation: rise 1s cubic-bezier(0.19, 1, 0.22, 1) 0.5s forwards;
+}
+
+.guide-text .text2 {
+  animation: rise2 2s cubic-bezier(0.19, 1, 0.22, 1) 0.85s forwards;
+}
+
+.guide-text .text3 {
+  animation: rise 3s cubic-bezier(0.19, 1, 0.22, 1) 1s forwards;
+}
+
+.guide-text .text4 {
+  animation: rise2 4s cubic-bezier(0.19, 1, 0.22, 1) 1.25s forwards;
+}
+
+.guide-text .text5 {
+  animation: rise 5s cubic-bezier(0.19, 1, 0.22, 1) 1.3s forwards;
+}
+
+.guide-text .text6 {
+  animation: riseshow 6s cubic-bezier(0.19, 1, 0.22, 1) 4s forwards;
+}
+
+@keyframes rise {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: rotate(7deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(0deg);
+    transform: translate3d(0, -50rpx, 0);
+  }
+}
+@keyframes rise2 {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: rotateY(7deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(0deg);
+    transform: translate3d(0, -50rpx, 0);
+  }
+}
+@keyframes riseshow {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, -200rpx, 0);
+  }
+}
+
+.show-bold {
+  font-size: 48rpx;
+  font-weight: bold;
+}
+
+.total-value, .text-show {
+  flex-direction: column;
+  align-items: center;
+}
+
+.total-value, .text-show {
+  margin-bottom: 40rpx;
+}
+
+.total-value text {
+  font-size: 60rpx;
+  font-weight: bold;
+  color: #fff;
+}
+
+.text-show text {
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.btn-show {
+  margin-bottom: 150rpx;
+  font-size: 32rpx;
+  background-color: #ffffff;
+  border-radius: 50px;
+  width: 480rpx;
+  color: #fc6b9f;
+}
+
+.btn-show::after {
+ border:1px solid #ffffff;
+ border-radius: 50px;
+
+}
+.btn-show::before {
+  border:1px solid #ffffff;
+  border-radius: 50px;
+}
+.other-button-hover {
+  opacity: 0.7;
+}

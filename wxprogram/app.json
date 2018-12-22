@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/school_report/school_report",
+    "pages/study_target/study_target",
+    "pages/major_average/major_average",
+    "pages/study_major/study_major",
+    "pages/report/report",
+    "pages/guide/guide",
+    "pages/presentation/presentation",
+    "pages/choose_school/choose_school",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FD504E",
+    "navigationBarTitleText": "留学竞争力测评",
+    "navigationBarTextStyle": "white"
+  }
+}
